@@ -1,0 +1,21 @@
+#!/bin/sh
+
+hashtags() {
+
+chosenLanguage=$(printf "hebrew\nenglish" | dmenu -p "Enter here the language you want to choose for your hashtags: ")
+[ "$chosenLanguage" == "english" ] && hashtagsList=( "#success" "#successful" "#successquotes" "#successmindset" "#successtips" "#successfulwomen" "#successquote" "#successcoach" "#keytosuccess" "#weightlosssuccess" "#successstory" "#successtip" "#successo" "#successminded" "#businesssuccess" "#successdriven" "#etsysuccess" "#ivfsuccess" "#successfulstoner" "#successfulmindset" "#mlmsuccess" "#dressforsuccess" "#hersuccess" "#successmore" "#roadtosuccess" "#slimmingworldsuccess" "#successmotivation" "#successhabits" "#successfulquotes" "#successcircleng" "#successdiaries" "#successfull" "#sayyestosuccess" "#successfulpeople" "#lawofsuccess" "#successsecrets" "#successstories" "#successprinciples" "#besuccessful" "#successclub" "#motivation" "#fitnessmotivation" "#motivationalquotes" "#gymmotivation" "#mondaymotivation" "#workoutmotivation" "#motivational" "#motivationmonday" "#bodybuildingmotivation" "#weightlossmotivation" "#morningmotivation" "#runningmotivation" "#dailymotivation" "#motivationalspeaker" "#tuesdaymotivation" "#motivationalquote" "#fitmotivation" "#slimmingworldmotivation" "#motivationalmonday" "#studymotivation" "#motivationquotes" "#sportmotivation" "#motivations" "#thursdaymotivation" "#selfmotivation" "#wednesdaymotivation" "#exercisemotivation" "#powerliftingmotivation" "#motivationquote" "#entrepreneurmotivation" "#mymotivation" "#fridaymotivation" "#yogamotivation" "#sundaymotivation" "#motivationdaily" "#motivationoftheday" "#motivationalwords" "#instamotivation" "#motivation101" "#motivationalpost" "#business" "#smallbusiness" "#supportsmallbusiness" "#businesswoman" "#womeninbusiness" "#businessowner" "#businessman" "#localbusiness" "#onlinebusiness" "#smallbusinessowner" "#blackownedbusiness" "#blackbusiness" "#shopsmallbusiness" "#businesscoach" "#businesstrip" "#businesswomen" "#supportlocalbusiness" "#familybusiness" "#supportblackbusiness" "#businesstips" "#businesslife" "#businessowners" "#businessopportunity" "#businesscards" "#smallbusinesssaturday" "#businessquotes" "#supportsmallbusinesses" "#businessminded" "#newbusiness" "#homebusiness" "#savvybusinessowner" "#homebasedbusiness" "#businesscasual" "#businesspassion" "#businesscard" "#businessmen" "#businessclass" "#businessgrowth" "#startupbusiness" "#lagosbusines" )
+[ "$chosenLanguage" == "hebrew" ] && hashtagsList=( "#מוטיבציה" "#אושר" "#אהבה" "#כסף" "#אימון" "#מטרות" "#אלוןאולמן" "#פריצתגבולות" "#השגיות" "#זוגיות" "#טונירובינס" "#aristo" "#מנהיגות" "#הצלחה" "#אמונה" "#תלאביב" "#ביטחוןעצמי" "#בנים" "#טלוויזיה" "#עצוב" "#רוגע" "#אמא" "#משפטים" "#הגשמה" "#מוטיבציהישראל" "#ישראל" "#האחהגדול" "#השראה" "#לייק" "#קוסמטיקה" "#שמחה" "#השראה" "#ספורט" "#בריאות" "#התפתחותאישית" "#תזונה" "#דיאטה" "#עסקים" "#כסף" "#אמונה" "#מוטיבציהישראל" "#חדרכושר" "#משפטים" "#אימוןאישי" "#אהבה" "#ירידהבמשקל" "#קרוספיט" "#פיטנס" "#אורחחייםבריא" "#כושרגופני" "#תלאביב" "#הצטיינות" "#אימוןכושר" "#אריסטו" "#tonyrobbins" "#בוקר_טוב" "#וינגייט" "#אתגר24" "#מוטיבציה" "#מוטיבציהיומיומית" "#השראה_מוטיבציה_העצמה" "#מוטיבציהלעסקים" "#ישראל" "#motivation" "#משפטים" "#השראה" "#עסקים" "#אושר" "#מוטיבציה" "#תזונה" "#ספורט" "#אימוןאישי" "#אימון" "#אהבה" "#בריאות" "#שמחה" "#ביטחוןעצמי" "#רגשות" "#משפטיםלחיים" "#השראה_יומית" "#כתיבהיוצרת" "#אמונה" "#הצלחהעסקית" "#לימודים" "#משפטימוטיבציה" "#כוח" "#עסק" "#שיווק" "#שינוי" "#משפטיםיפים" "#השראהיומית" "#הגשמה")
+hashtagsMaker() {
+for (( i=1; i<=30; i++ ))
+do
+	randomHashtags=${hashtagsList[$(shuf -i 0-116 -n 1)]}
+	echo $randomHashtags | uniq | tr '\n' ' '
+done
+}
+[ "$chosenLanguage" == "english" ] && (echo -e "Don't forget to follow: @your.success.path 🌟\nDon't forget to follow: @your.success.path 🌟\nDon't forget to follow: @your.success.path 🌟\n" && hashtagsMaker)
+[ "$chosenLanguage" == "hebrew" ] && (echo -e "עקבו 🌠: @success.road.il\nעקבו 🌠: @success.road.il\nעקבו 🌠: @success.road.il\n" && hashtagsMaker)
+# notify-send "Your hashtags are copied"
+
+}
+
+hashtags | xclip -sel c && notify-send "Your hashtags are copied now"
